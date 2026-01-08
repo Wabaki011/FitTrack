@@ -1,0 +1,25 @@
+[
+  {
+    "id": "be79ccfa-d4ce-471e-9759-94004c4e3a88",
+    "username": "Timothy",
+    "password": "$2b$10$8Eb3E3oPcgtIDroGITn6RebYdFLfqyJpKlddCTM4JlEsH3fzXjjaO",
+    "profile": {
+      "height": 180.34,
+      "weight": 83,
+      "age": 25,
+      "gender": "male",
+      "activityLevel": "active"
+    },
+    "goals": {
+      "targetWeight": 0,
+      "goal": "gain",
+      "weeklyGoal": 0.5,
+      "macroDistribution": {
+        "protein": 0.3,
+        "carbs": 0.4,
+        "fat": 0.3
+      },
+      "waterTarget": 3000
+    }
+  }
+]

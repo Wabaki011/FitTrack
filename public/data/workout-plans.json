@@ -1,0 +1,210 @@
+[
+  {
+    "id": "wp-athlete-001",
+    "name": "Athlete Performance (Intermediate)",
+    "description": "Focuses on speed, agility, and endurance for athletic performance.",
+    "goal": "athlete",
+    "difficulty": "intermediate",
+    "dailyWorkouts": [
+      {
+        "day": "Monday",
+        "name": "Power & Agility",
+        "exercises": [
+          { "name": "Box Jumps", "sets": "4", "reps": "6", "description": "Explosively jump onto a sturdy box or platform.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Medicine Ball Slams", "sets": "3", "reps": "10", "description": "Lift a medicine ball overhead and slam it to the ground.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Ladder Drills", "sets": "5", "reps": "20 seconds", "description": "Perform fast footwork drills through an agility ladder.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Sprint Intervals", "sets": "8", "reps": "100m", "description": "Sprint at maximum effort for a short distance, then rest.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "name": "Strength & Core",
+        "exercises": [
+          { "name": "Barbell Squats", "sets": "4", "reps": "8", "description": "Perform squats with a barbell on your back.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Overhead Press", "sets": "3", "reps": "8-10", "description": "Press a barbell or dumbbells overhead.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Plank", "sets": "3", "reps": "60 seconds", "description": "Hold a straight line from your head to your heels.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Russian Twists", "sets": "3", "reps": "15 each side", "description": "Twist your torso from side to side with your feet off the ground.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Wednesday",
+        "name": "Active Recovery",
+        "exercises": [
+          { "name": "Foam Rolling", "sets": "1", "reps": "10 minutes", "description": "Use a foam roller to release muscle tightness.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Light Jog", "sets": "1", "reps": "30 minutes", "description": "A slow and easy jog to promote blood flow.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Thursday",
+        "name": "Explosive Power",
+        "exercises": [
+          { "name": "Clean & Jerk", "sets": "3", "reps": "5", "description": "A complex Olympic lift involving a clean and an overhead jerk.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Push Press", "sets": "3", "reps": "6-8", "description": "An overhead press that uses momentum from your legs.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Long Jumps", "sets": "4", "reps": "5", "description": "Jump as far as you can from a standing position.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Friday",
+        "name": "Endurance & Speed",
+        "exercises": [
+          { "name": "Treadmill Sprints", "sets": "10", "reps": "30 seconds on, 30 off", "description": "Alternate between sprinting and resting on a treadmill.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Rowing Machine", "sets": "3", "reps": "500m", "description": "Row for distance on a rowing machine.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Burpees", "sets": "3", "reps": "12", "description": "A full-body exercise that involves a squat, push-up, and jump.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Saturday",
+        "name": "Mobility & Flexibility",
+        "exercises": [
+          { "name": "Dynamic Stretching", "sets": "1", "reps": "20 minutes", "description": "Stretches that involve movement to prepare your body for a workout.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Yoga Flow", "sets": "1", "reps": "30 minutes", "description": "A series of yoga poses to improve flexibility and strength.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Sunday",
+        "name": "Rest Day",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "wp-bodybuilder-001",
+    "name": "Bodybuilding Hypertrophy (Beginner)",
+    "description": "Designed for muscle growth and aesthetic development.",
+    "goal": "bodybuilder",
+    "difficulty": "beginner",
+    "dailyWorkouts": [
+      {
+        "day": "Monday",
+        "name": "Chest & Triceps",
+        "exercises": [
+          { "name": "Barbell Bench Press", "sets": "3", "reps": "8-12", "description": "Lie on a bench and press a barbell up from your chest.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Incline Dumbbell Press", "sets": "3", "reps": "10-15", "description": "Press dumbbells up from your chest on an incline bench.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Dumbbell Flyes", "sets": "3", "reps": "12-15", "description": "Perform a flying motion with dumbbells to target your chest.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Triceps Pushdowns", "sets": "3", "reps": "10-15", "description": "Push a bar down on a cable machine to target your triceps.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Overhead Dumbbell Extension", "sets": "3", "reps": "12-15", "description": "Extend a dumbbell overhead to target your triceps.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "name": "Back & Biceps",
+        "exercises": [
+          { "name": "Lat Pulldowns", "sets": "3", "reps": "8-12", "description": "Pull a bar down to your chest to target your lats.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Seated Cable Rows", "sets": "3", "reps": "10-15", "description": "Pull a handle towards your abdomen to target your back.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Dumbbell Rows", "sets": "3", "reps": "10-12 each arm", "description": "Pull a dumbbell up to your chest to target your back.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Barbell Curls", "sets": "3", "reps": "8-12", "description": "Curl a barbell up to your shoulders to target your biceps.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Hammer Curls", "sets": "3", "reps": "10-15", "description": "Curl dumbbells with a neutral grip to target your biceps.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Wednesday",
+        "name": "Legs & Shoulders",
+        "exercises": [
+          { "name": "Leg Press", "sets": "3", "reps": "10-15", "description": "Push a platform away from you with your legs.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Leg Extensions", "sets": "3", "reps": "12-15", "description": "Extend your legs to target your quads.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Hamstring Curls", "sets": "3", "reps": "12-15", "description": "Curl your legs to target your hamstrings.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Dumbbell Shoulder Press", "sets": "3", "reps": "8-12", "description": "Press dumbbells overhead to target your shoulders.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Lateral Raises", "sets": "3", "reps": "12-15", "description": "Raise dumbbells to your sides to target your shoulders.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Thursday",
+        "name": "Rest Day",
+        "exercises": []
+      },
+      {
+        "day": "Friday",
+        "name": "Full Body (Compound Focus)",
+        "exercises": [
+          { "name": "Deadlifts", "sets": "3", "reps": "5-8", "description": "Lift a barbell off the floor to target your entire body.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Incline Bench Press", "sets": "3", "reps": "8-12", "description": "Press a barbell up from your chest on an incline bench.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Bent-Over Rows", "sets": "3", "reps": "8-12", "description": "Pull a barbell up to your chest to target your back.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Leg Curls", "sets": "3", "reps": "10-15", "description": "Curl your legs to target your hamstrings.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Calf Raises", "sets": "3", "reps": "15-20", "description": "Raise your heels to target your calves.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Saturday",
+        "name": "Active Recovery / Cardio",
+        "exercises": [
+          { "name": "Light Cardio (e.g., walk, swim)", "sets": "1", "reps": "30-45 minutes", "description": "A slow and easy cardio session to promote recovery.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Sunday",
+        "name": "Rest Day",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "wp-model-001",
+    "name": "Model Physique (Toning & Definition)",
+    "description": "Focuses on toning, definition, and overall physique aesthetics.",
+    "goal": "model",
+    "difficulty": "intermediate",
+    "dailyWorkouts": [
+      {
+        "day": "Monday",
+        "name": "Upper Body & Core",
+        "exercises": [
+          { "name": "Push-ups", "sets": "3", "reps": "AMRAP", "description": "A classic bodyweight exercise for your chest, shoulders, and triceps.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Dumbbell Rows", "sets": "3", "reps": "12-15", "description": "Pull a dumbbell up to your chest to target your back.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Lateral Raises", "sets": "3", "reps": "15-20", "description": "Raise dumbbells to your sides to target your shoulders.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Plank with Hip Dips", "sets": "3", "reps": "10 each side", "description": "From a plank position, dip your hips from side to side.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "name": "Lower Body & Glutes",
+        "exercises": [
+          { "name": "Goblet Squats", "sets": "3", "reps": "15-20", "description": "Hold a dumbbell at your chest and squat down.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Glute Bridges", "sets": "3", "reps": "20-25", "description": "Lie on your back and lift your hips to target your glutes.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Walking Lunges", "sets": "3", "reps": "12 each leg", "description": "Step forward into a lunge, then repeat with the other leg.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Calf Raises", "sets": "3", "reps": "20-25", "description": "Raise your heels to target your calves.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Wednesday",
+        "name": "Cardio & Active Recovery",
+        "exercises": [
+          { "name": "HIIT (e.g., Jump Ropes, Burpees)", "sets": "1", "reps": "20 minutes", "description": "High-intensity interval training to burn calories.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Pilates / Yoga", "sets": "1", "reps": "30 minutes", "description": "Improve your flexibility and core strength.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Thursday",
+        "name": "Full Body Circuit",
+        "exercises": [
+          { "name": "Burpee Box Jumps", "sets": "3", "reps": "10", "description": "A combination of a burpee and a box jump for a full-body challenge.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Renegade Rows", "sets": "3", "reps": "10 each arm", "description": "Perform a row from a plank position to target your back and core.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Mountain Climbers", "sets": "3", "reps": "30 seconds", "description": "A cardio exercise that also works your core.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Thrusters", "sets": "3", "reps": "12-15", "description": "A combination of a squat and an overhead press.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Friday",
+        "name": "Bodyweight & Core",
+        "exercises": [
+          { "name": "Pull-ups (assisted if needed)", "sets": "3", "reps": "AMRAP", "description": "Pull your body up to a bar to target your back and biceps.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Leg Raises", "sets": "3", "reps": "15-20", "description": "Raise your legs to target your lower abs.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Supermans", "sets": "3", "reps": "15-20", "description": "Lift your arms and legs off the floor to target your lower back.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Side Planks", "sets": "3", "reps": "30 seconds each side", "description": "Hold a plank on your side to target your obliques.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Saturday",
+        "name": "Light Cardio & Stretching",
+        "exercises": [
+          { "name": "Brisk Walk / Light Cycle", "sets": "1", "reps": "45 minutes", "description": "A light cardio session to promote recovery.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" },
+          { "name": "Full Body Stretch", "sets": "1", "reps": "15 minutes", "description": "Stretch all your major muscle groups.", "videoUrl": "https://i.imgur.com/r6h2n2v.mp4" }
+        ]
+      },
+      {
+        "day": "Sunday",
+        "name": "Rest Day",
+        "exercises": []
+      }
+    ]
+  }
+]

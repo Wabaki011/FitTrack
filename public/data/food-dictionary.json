@@ -1,0 +1,120 @@
+[
+    {
+        "category": "Protein Sources",
+        "foods": [
+            {
+                "name": "Chicken Breast (100g, cooked)",
+                "calories": 165,
+                "protein": 31,
+                "carbs": 0,
+                "fats": 3.6
+            },
+            {
+                "name": "Salmon (100g, cooked)",
+                "calories": 206,
+                "protein": 22,
+                "carbs": 0,
+                "fats": 12
+            },
+            {
+                "name": "Egg (1 large)",
+                "calories": 78,
+                "protein": 6,
+                "carbs": 0.6,
+                "fats": 5
+            },
+            {
+                "name": "Greek Yogurt (100g, plain, non-fat)",
+                "calories": 59,
+                "protein": 10,
+                "carbs": 3.6,
+                "fats": 0.4
+            },
+            {
+                "name": "Tofu (100g, firm)",
+                "calories": 76,
+                "protein": 8,
+                "carbs": 1.9,
+                "fats": 4.8
+            }
+        ]
+    },
+    {
+        "category": "Complex Carbohydrates",
+        "foods": [
+            {
+                "name": "Brown Rice (100g, cooked)",
+                "calories": 111,
+                "protein": 2.6,
+                "carbs": 23,
+                "fats": 0.9
+            },
+            {
+                "name": "Oats (100g, dry)",
+                "calories": 389,
+                "protein": 16.9,
+                "carbs": 66.3,
+                "fats": 6.9
+            },
+            {
+                "name": "Quinoa (100g, cooked)",
+                "calories": 120,
+                "protein": 4.4,
+                "carbs": 21.3,
+                "fats": 1.9
+            },
+            {
+                "name": "Sweet Potato (100g, cooked)",
+                "calories": 86,
+                "protein": 1.6,
+                "carbs": 20.1,
+                "fats": 0.1
+            }
+        ]
+    },
+    {
+        "category": "Healthy Fats",
+        "foods": [
+            {
+                "name": "Avocado (100g)",
+                "calories": 160,
+                "protein": 2,
+                "carbs": 9,
+                "fats": 15
+            },
+            {
+                "name": "Almonds (28g, ~23 almonds)",
+                "calories": 164,
+                "protein": 6,
+                "carbs": 6,
+                "fats": 14
+            },
+            {
+                "name": "Olive Oil (1 tablespoon)",
+                "calories": 119,
+                "protein": 0,
+                "carbs": 0,
+                "fats": 14
+            }
+        ]
+    },
+    {
+        "category": "Vegetables",
+        "foods": [
+            {
+                "name": "Broccoli (100g)",
+                "calories": 34,
+                "protein": 2.8,
+                "carbs": 6.6,
+                "fats": 0.4
+            },
+            {
+                "name": "Spinach (100g)",
+                "calories": 23,
+                "protein": 2.9,
+                "carbs": 3.6,
+                "fats": 0.4
+            }
+        ]
+    }
+]

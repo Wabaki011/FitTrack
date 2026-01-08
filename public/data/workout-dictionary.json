@@ -1,0 +1,177 @@
+[
+  {
+    "name": "Bench Press",
+    "muscleGroup": "Chest",
+    "instructions": [
+      "Lie down on a flat bench. Grab the barbell with your hands slightly wider than shoulder-width apart.",
+      "Lift the barbell from the rack and hold it straight over you with your arms locked. This is your starting position.",
+      "Breathe in and bring the barbell down slowly until it's about chest level.",
+      "Push the barbell back up to the starting position as you breathe out. Focus on using your chest muscles.",
+      "Repeat for the desired number of reps."
+    ],
+    "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Push-up",
+    "muscleGroup": "Chest",
+    "instructions": [
+      "Get on all fours, placing your hands slightly wider than your shoulders.",
+      "Straighten your arms and legs to lift your body. Your body should form a straight line from your head to your heels.",
+      "Lower your body until your chest nearly touches the floor.",
+      "Push yourself back up to the starting position.",
+      "Repeat."
+    ],
+    "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Deadlift",
+    "muscleGroup": "Back",
+    "instructions": [
+      "Stand with your mid-foot under the barbell.",
+      "Bend over and grab the bar with a shoulder-width grip.",
+      "Bend your knees until your shins touch the bar.",
+      "Lift your chest up and straighten your lower back.",
+      "Take a big breath, hold it, and stand up with the weight. Keep the bar in contact with your legs.",
+      "Return the weight to the floor by moving your hips back and bending your legs."
+    ],
+    "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Pull-up",
+    "muscleGroup": "Back",
+    "instructions": [
+      "Grab the pull-up bar with your palms facing away from you and your hands shoulder-width apart.",
+      "Hang with your arms fully extended.",
+      "Pull yourself up until your chin is above the bar. Avoid swinging your legs.",
+      "Lower yourself back down to the starting position with control.",
+      "Repeat."
+    ],
+    "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Squat",
+    "muscleGroup": "Legs",
+    "instructions": [
+      "Stand with your feet slightly wider than your hips.",
+      "Keep your chest up and engage your core as you push your hips back and bend your knees as if you're sitting in a chair.",
+      "Lower down until your thighs are parallel to the floor, or as low as you can comfortably go.",
+      "Push through your heels to return to the starting position.",
+      "Repeat."
+    ],
+    "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Leg Press",
+    "muscleGroup": "Legs",
+    "instructions": [
+      "Sit on the leg press machine with your back and head resting comfortably against the padded support.",
+      "Place your feet on the footplate about hip-width apart.",
+      "Your legs should form an angle of about 90 degrees at the knees.",
+      "Push the platform away with your heels and forefoot. Do not lock your knees at the top.",
+      "Slowly return to the starting position.",
+      "Repeat."
+    ],
+    "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Tricep Dips",
+    "muscleGroup": "Triceps",
+    "instructions": [
+        "Sit on the edge of a bench or chair, with your hands gripping the edge, shoulder-width apart.",
+        "Slide your butt off the front of the bench with your legs extended out in front of you.",
+        "Straighten your arms, keeping a little bend in your elbows to keep tension on your triceps and off your elbow joints.",
+        "Slowly bend your elbows to lower your body toward the floor until your elbows are at about a 90-degree angle.",
+        "Once you reach the bottom of the movement, press down into the bench to straighten your elbows, returning to the starting position.",
+        "Repeat."
+    ],
+    "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+      "name": "Bicep Curls",
+      "muscleGroup": "Biceps",
+      "instructions": [
+          "Stand up straight with a dumbbell in each hand at arm's length.",
+          "Keep your elbows close to your torso and rotate the palms of your hands until they are facing forward.",
+          "While keeping the upper arms stationary",
+          "Continue to raise the weights until your biceps are fully contracted and the dumbbells are at shoulder level.",
+          "Hold the contracted position for a brief pause as you squeeze your biceps.",
+          "Inhale and slowly begin to lower the dumbbells back to the starting position."
+      ],
+      "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+      "name": "Hammer Curls",
+      "muscleGroup": "Biceps",
+      "instructions": [
+          "Stand up straight with a dumbbell in each hand at arm's length.",
+          "Hold the dumbbells with a neutral grip (palms facing in).",
+          "Keep your elbows close to your torso.",
+          "While keeping the upper arms stationary",
+          "Hold the top position for a moment, squeezing your biceps.",
+          "Inhale and slowly lower the dumbbells back to the starting position."
+      ],
+      "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+      "name": "Wrist Curls",
+      "muscleGroup": "Forearms",
+      "instructions": [
+          "Sit on a bench and hold a dumbbell in one hand.",
+          "Rest your forearm on your thigh, with your wrist and the dumbbell hanging off your knee.",
+          "Your palm should be facing up.",
+          "Slowly curl your wrist upwards, lifting the dumbbell as high as you can.",
+          "Hold for a moment at the top, then slowly lower the dumbbell back to the starting position.",
+          "Repeat for the desired number of reps, then switch arms."
+      ],
+      "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+      "name": "Overhead Press",
+      "muscleGroup": "Shoulders",
+      "instructions": [
+          "Sit on a bench with back support or stand with your feet shoulder-width apart.",
+          "Hold a dumbbell in each hand at shoulder height, with your palms facing forward and your elbows bent.",
+          "Exhale and press the dumbbells overhead until your arms are fully extended. Don't lock your elbows.",
+          "Hold for a moment at the top.",
+          "Inhale and slowly lower the dumbbells back to the starting position.",
+          "Repeat."
+      ],
+      "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+      "name": "Lateral Raises",
+      "muscleGroup": "Shoulders",
+      "instructions": [
+          "Stand with your feet shoulder-width apart, holding a dumbbell in each hand at your sides.",
+          "Keep your back straight and your arms almost fully extended.",
+          "Raise your arms out to the sides until they are at shoulder level. Keep a slight bend in your elbows.",
+          "Hold for a moment at the top.",
+          "Slowly lower the dumbbells back to the starting position.",
+          "Repeat."
+      ],
+      "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+      "name": "Crunches",
+      "muscleGroup": "Abs",
+      "instructions": [
+          "Lie on your back with your knees bent and feet flat on the floor.",
+          "Place your hands behind your head or across your chest.",
+          "Lift your head and shoulders off the floor, engaging your abdominal muscles.",
+          "Hold for a moment, then slowly lower yourself back down.",
+          "Repeat."
+      ],
+      "imageUrl": "https://via.placeholder.com/150"
+  },
+  {
+      "name": "Plank",
+      "muscleGroup": "Abs",
+      "instructions": [
+          "Start in a push-up position, but with your weight resting on your forearms instead of your hands.",
+          "Your body should form a straight line from your shoulders to your ankles.",
+          "Engage your core by sucking your belly button into your spine.",
+          "Hold this position for the desired amount of time."
+      ],
+      "imageUrl": "https://via.placeholder.com/150"
+  }
+]

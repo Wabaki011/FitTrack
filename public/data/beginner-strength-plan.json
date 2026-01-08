@@ -1,0 +1,94 @@
+{
+    "id": "beginner-strength-101",
+    "name": "Beginner Strength Program (3 Months)",
+    "description": "A 3-month, full-body program designed to build a solid foundation of strength. It focuses on compound movements and progressive overload.",
+    "guidance": {
+        "title": "How to Choose Your Lifts and Progress",
+        "weightSelection": "For each exercise, start with a weight you can lift for the target number of reps with good form. The last 1-2 reps of each set should be challenging, but not impossible. If you can't complete the minimum number of reps, the weight is too heavy. If you can easily complete more than the maximum, it's too light.",
+        "progression": "The goal is to gradually increase the demand on your muscles. Each week, try to do one of the following for each main exercise: \n1. Add a small amount of weight (e.g., 2.5kg / 5lbs). \n2. Do one more rep per set than you did last week with the same weight. \nOnce you can complete all sets for the top end of the rep range, you should increase the weight.",
+        "rest": "Rest for 60-90 seconds between sets for smaller exercises, and 2-3 minutes for heavy compound lifts like squats and deadlifts.",
+        "form": "Prioritize good form over heavy weight. Watch videos of the exercises and consider recording yourself to check your technique."
+    },
+    "schedule": [
+        {
+            "phase": "Phase 1: Foundation (Weeks 1-4)",
+            "weeks": [1, 2, 3, 4],
+            "description": "Focus on learning the movements and building a base. The weights should feel manageable.",
+            "workouts": [
+                {
+                    "day": "Day A",
+                    "exercises": [
+                        { "name": "Squats", "sets": "3x5-8" },
+                        { "name": "Bench Press", "sets": "3x5-8" },
+                        { "name": "Barbell Rows", "sets": "3x8-10" },
+                        { "name": "Lateral Raises", "sets": "2x10-12" }
+                    ]
+                },
+                {
+                    "day": "Day B",
+                    "exercises": [
+                        { "name": "Deadlifts", "sets": "3x5" },
+                        { "name": "Overhead Press", "sets": "3x5-8" },
+                        { "name": "Pull-ups (or Lat Pulldowns)", "sets": "3xAs many as possible" },
+                        { "name": "Bicep Curls", "sets": "2x10-12" }
+                    ]
+                }
+            ],
+            "weekly_schedule": "Perform three workouts per week on non-consecutive days, alternating between Day A and Day B. (e.g., Week 1: A, B, A; Week 2: B, A, B)"
+        },
+        {
+            "phase": "Phase 2: Building Strength (Weeks 5-8)",
+            "weeks": [5, 6, 7, 8],
+            "description": "Start pushing the intensity. Focus on adding weight or reps each week.",
+            "workouts": [
+                {
+                    "day": "Day A",
+                    "exercises": [
+                        { "name": "Squats", "sets": "4x5" },
+                        { "name": "Bench Press", "sets": "4x5" },
+                        { "name": "Barbell Rows", "sets": "3x8-10" },
+                        { "name": "Face Pulls", "sets": "3x12-15" }
+                    ]
+                },
+                {
+                    "day": "Day B",
+                    "exercises": [
+                        { "name": "Deadlifts", "sets": "4x5" },
+                        { "name": "Overhead Press", "sets": "4x5" },
+                        { "name": "Pull-ups (or Lat Pulldowns)", "sets": "4xAs many as possible" },
+                        { "name": "Tricep Dips", "sets": "3x8-10" }
+                    ]
+                }
+            ],
+            "weekly_schedule": "Same as Phase 1: three non-consecutive days, alternating A and B."
+        },
+        {
+            "phase": "Phase 3: Peak (Weeks 9-12)",
+            "weeks": [9, 10, 11, 12],
+            "description": "Increase the volume and intensity to maximize strength and muscle gains.",
+            "workouts": [
+                {
+                    "day": "Day A",
+                    "exercises": [
+                        { "name": "Squats", "sets": "5x5" },
+                        { "name": "Bench Press", "sets": "5x5" },
+                        { "name": "Barbell Rows", "sets": "4x8-10" },
+                        { "name": "Lateral Raises", "sets": "3x10-12" },
+                        { "name": "Crunches", "sets": "3x15-20" }
+                    ]
+                },
+                {
+                    "day": "Day B",
+                    "exercises": [
+                        { "name": "Deadlifts", "sets": "5x5" },
+                        { "name": "Overhead Press", "sets": "5x5" },
+                        { "name": "Pull-ups (or Lat Pulldowns)", "sets": "5xAs many as possible" },
+                        { "name": "Hammer Curls", "sets": "3x10-12" },
+                        { "name": "Plank", "sets": "3x60 seconds" }
+                    ]
+                }
+            ],
+            "weekly_schedule": "Same as Phase 1: three non-consecutive days, alternating A and B."
+        }
+    ]
+}
