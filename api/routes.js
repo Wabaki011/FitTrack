@@ -51,6 +51,10 @@ router.post('/logout', (req, res, next) => {
 });
 
 // --- User & Dashboard Routes ---
+router.get('/user/me', requireAuth, (req, res) => {
+    res.json({ user: req.user });
+});
+
 router.get('/dashboard', requireAuth, async (req, res, next) => {
     try {
         const today = new Date().toISOString().split('T')[0];
@@ -113,7 +117,8 @@ router.post('/meals', requireAuth, async (req, res, next) => {
     try {
         const meal = await trackingService.addMeal(req.user.id, req.body);
         res.status(201).json({ message: 'Meal added!', meal });
-    } catch (error) {
+    }
+     catch (error) {
         next(error);
     }
 });
@@ -127,6 +132,17 @@ router.post('/water', requireAuth, async (req, res, next) => {
         next(error);
     }
 });
+
+router.post('/water/subtract', requireAuth, async (req, res, next) => {
+    try {
+        const { amount } = req.body;
+        const waterLog = await trackingService.subtractWaterIntake(req.user.id, amount);
+        res.status(200).json({ message: 'Water intake subtracted!', waterLog });
+    } catch (error) {
+        next(error);
+    }
+});
+
 
 router.post('/prs', requireAuth, async (req, res, next) => {
     try {
