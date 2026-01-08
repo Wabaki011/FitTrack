@@ -1313,24 +1313,19 @@ document.addEventListener('DOMContentLoaded', () => {
         await loadInitialData();
 
         // Check if user is already logged in
-        try {
-            const loggedInUser = await api.get('/api/user/me');
-            if (loggedInUser && loggedInUser.user) {
-                state.user = loggedInUser.user;
-                state.currentView = 'dashboard';
-                // Fetch user-specific data like PRs, water intake, meals, workout logs
-                // For now, these are dummy values until API is fully implemented
-                state.prs = loggedInUser.user.prs || { squat: 0, bench: 0, deadlift: 0 };
-                state.waterIntake = loggedInUser.user.waterIntake || 0;
-                state.meals = loggedInUser.user.meals || [];
-                state.workoutLog = loggedInUser.user.workoutLog || [];
-                state.nutritionGoals = loggedInUser.user.nutritionGoals || state.nutritionGoals; // Use existing if not in user
-            } else {
-                state.currentView = 'login';
-            }
-        } catch (error) {
-            console.warn('No user logged in or error fetching user session:', error.message);
-            state.currentView = 'login'; // Ensure we go to login if session check fails
+        const loggedInUser = await api.get('/api/user/me'); // Assuming an endpoint to get logged in user
+        if (loggedInUser && loggedInUser.user) {
+            state.user = loggedInUser.user;
+            state.currentView = 'dashboard';
+            // Fetch user-specific data like PRs, water intake, meals, workout logs
+            // For now, these are dummy values until API is fully implemented
+            state.prs = loggedInUser.user.prs || { squat: 0, bench: 0, deadlift: 0 };
+            state.waterIntake = loggedInUser.user.waterIntake || 0;
+            state.meals = loggedInUser.user.meals || [];
+            state.workoutLog = loggedInUser.user.workoutLog || [];
+            state.nutritionGoals = loggedInUser.user.nutritionGoals || state.nutritionGoals; // Use existing if not in user
+        } else {
+            state.currentView = 'login';
         }
         render();
     };
