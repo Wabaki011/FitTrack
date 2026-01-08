@@ -33,17 +33,7 @@ const login = async (username, password) => {
         throw new Error('Invalid username or password.');
     }
 
-    let isMatch = false;
-    // Attempt bcrypt comparison first
-    try {
-        isMatch = await bcrypt.compare(password, user.password);
-    } catch (e) {
-        // If bcrypt comparison fails (e.g., password not hashed), fall back to direct comparison
-        // WARNING: This is a security vulnerability and should be removed in production.
-        // All passwords should be hashed. This is for unblocking development only.
-        isMatch = (password === user.password);
-        console.warn('Fallback to plaintext password comparison for user:', username);
-    }
+    const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
         throw new Error('Invalid username or password.');
