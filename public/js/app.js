@@ -1,11 +1,14 @@
 // public/js/app.js
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("app.js Step 2: Implement Login Action");
+
     const app = document.getElementById('app');
 
     const state = {
         user: null,
-        currentView: 'login', // Start at login page
+        dashboardData: null,
+        currentView: 'dashboard', // Added state for current view
         waterIntake: 0,
         prs: {
             squat: 0,
@@ -29,30 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         meals: [], // To store logged meals
         workoutPlans: [], // To store all available workout plans
         selectedPlan: null // To store the currently viewed workout plan
-    };
-
-    // --- API Utility ---
-    const api = {
-        post: async (url, data) => {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            return response.json();
-        },
-        get: async (url) => {
-            const response = await fetch(url);
-            return response.json();
-        },
-        put: async (url, data) => {
-            const response = await fetch(url, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            return response.json();
-        }
     };
 
     // Utility function to get workout summary
@@ -104,85 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                     </div>
                                     <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg">Login</button></div>
                                 </form>
-                                <p class="text-center mt-3">Don't have an account? <a href="#" data-view="register">Register here</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `,
-        registerPage: () => `
-            <div class="container vh-100 d-flex justify-content-center align-items-center">
-                <div class="row w-100">
-                    <div class="col-lg-6 d-none d-lg-block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b" class="img-fluid"></div>
-                    <div class="col-lg-5 col-md-8 mx-auto">
-                        <div class="card shadow-lg border-0 p-4">
-                            <div class="card-body">
-                                <h1 class="card-title text-center font-weight-bold mb-2">Join FitTrack!</h1>
-                                <p class="card-text text-center text-muted mb-4">Create your account to start tracking.</p>
-                                <form id="register-form">
-                                    <div class="mb-3">
-                                        <label for="reg-username" class="form-label">Username</label>
-                                        <input type="text" id="reg-username" class="form-control" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="reg-password" class="form-label">Password</label>
-                                        <input type="password" id="reg-password" class="form-control" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="reg-fullName" class="form-label">Full Name</label>
-                                        <input type="text" id="reg-fullName" class="form-control" required>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="reg-age" class="form-label">Age</label>
-                                            <input type="number" id="reg-age" class="form-control" required>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="reg-gender" class="form-label">Gender</label>
-                                            <select id="reg-gender" class="form-select" required>
-                                                <option value="">Select...</option>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="reg-height" class="form-label">Height (e.g., 5'11" or 180cm)</label>
-                                            <input type="text" id="reg-height" class="form-control" required>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="reg-weight" class="form-label">Weight (kg)</label>
-                                            <input type="number" id="reg-weight" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <h5 class="mt-4">Fitness Goals</h5>
-                                    <div class="mb-3">
-                                        <label for="reg-goalType" class="form-label">Goal Type</label>
-                                        <select id="reg-goalType" class="form-select" required>
-                                            <option value="maintain">Maintain Weight</option>
-                                            <option value="lose weight">Lose Weight</option>
-                                            <option value="gain muscle">Gain Muscle</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="reg-targetWeight" class="form-label">Target Weight (kg)</label>
-                                        <input type="number" id="reg-targetWeight" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="reg-activityLevel" class="form-label">Activity Level</label>
-                                        <select id="reg-activityLevel" class="form-select" required>
-                                            <option value="sedentary">Sedentary (little or no exercise)</option>
-                                            <option value="lightly active">Lightly Active (light exercise/sports 1-3 days/week)</option>
-                                            <option value="moderately active">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
-                                            <option value="very active">Very Active (hard exercise/sports 6-7 days/week)</option>
-                                            <option value="super active">Super Active (very hard exercise/physical job)</option>
-                                        </select>
-                                    </div>
-                                    <div class="d-grid"><button type="submit" class="btn btn-success btn-lg">Register</button></div>
-                                </form>
-                                <p class="text-center mt-3">Already have an account? <a href="#" data-view="login">Login here</a></p>
                             </div>
                         </div>
                     </div>
@@ -580,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         },
         foodProgram: (data) => {
-            if (!data) return '';
+            if (!data || !data.foodDictionary) return '<p>Loading food dictionary...</p>';
             const { user, foodDictionary } = data;
             const bmr = 10 * user.weight + 6.25 * parseFloat(user.height.replace("'", ".")) * 2.54 - 5 * user.age + 5; // Simplified BMR calculation
             const maintenance = bmr * 1.2; // Sedentary activity level
@@ -784,7 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const render = async () => {
+    const render = () => {
         // Recalculate current nutrition totals from meals
         state.nutritionGoals.currentCalories = state.meals.reduce((total, meal) => total + meal.calories, 0);
         state.nutritionGoals.currentProtein = state.meals.reduce((total, meal) => total + meal.protein, 0);
@@ -825,9 +725,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
                 case 'workoutDictionary':
                     viewContent = templates.workoutDictionary(templateData);
-                    break;
-                case 'register':
-                    viewContent = templates.registerPage();
                     break;
                 default:
                     viewContent = templates.dashboard(templateData);
@@ -936,151 +833,72 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const actions = {
-        login: async (username, password) => {
+        login: (username, password) => {
             console.log(`Attempting login for user: ${username}`);
-            try {
-                const result = await api.post('/api/login', { username, password });
-                if (result.user) {
-                    state.user = result.user;
-                    state.currentView = 'dashboard';
-                    // Re-fetch initial data if needed for the logged in user
-                    await Promise.all([
-                        loadWorkoutDictionary(),
-                        loadFoodDictionary(),
-                        loadWorkoutPlans()
-                    ]);
-                    render();
-                } else {
-                    alert(result.message || 'Login failed.');
-                }
-            } catch (error) {
-                console.error('Login error:', error);
-                alert('An error occurred during login.');
-            }
-        },
-        register: async (username, password, fullName, age, gender, height, weight, goalType, targetWeight, activityLevel) => {
-            console.log(`Attempting registration for user: ${username}`);
-            try {
-                const profile = { age: parseInt(age), gender, height, weight: parseFloat(weight) };
-                const goals = { goalType, targetWeight: parseFloat(targetWeight), activityLevel };
-                const result = await api.post('/api/register', { username, password, profile, goals });
-                if (result.user) {
-                    alert('Registration successful! Please log in.');
-                    state.currentView = 'login';
-                    render();
-                } else {
-                    alert(result.message || 'Registration failed.');
-                }
-            } catch (error) {
-                console.error('Registration error:', error);
-                alert('An error occurred during registration.');
-            }
-        },
-        logout: async () => {
-            try {
-                await api.post('/api/logout');
-                state.user = null;
-                state.currentView = 'login';
+            if (username === 'Timothy' && password === 'admin') {
+                state.user = {
+                    username: 'Timothy', fullName: 'Timothy Alvarez', age: 25,
+                    weight: 85, height: '5\'11"'
+                };
+                state.dashboardData = { user: state.user }; // Keep dashboardData for now, but render uses state.user/prs etc.
+                console.log("Login successful. Rendering dashboard.");
                 render();
-            } catch (error) {
-                console.error('Logout error:', error);
-                alert('An error occurred during logout.');
+            } else {
+                alert('Invalid credentials');
             }
         },
-        addWater: async () => {
-            if (!state.user) return;
-            const waterAmount = 250;
-            try {
-                const result = await api.post('/api/water', { amount: waterAmount });
-                if (result.waterLog) {
-                    state.waterIntake = result.waterLog.currentIntake; // Assuming API returns updated total
-                    render();
-                } else {
-                    alert(result.message || 'Failed to add water.');
-                }
-            } catch (error) {
-                console.error('Add water error:', error);
-                alert('An error occurred while adding water.');
-            }
+        logout: () => {
+            state.user = null;
+            state.dashboardData = null;
+            state.currentView = 'dashboard';
+            render();
         },
-        subtractWater: async () => {
-            if (!state.user) return;
-            const waterAmount = 250;
-            try {
-                const result = await api.post('/api/water/subtract', { amount: waterAmount }); // Assuming a subtract endpoint
-                if (result.waterLog) {
-                    state.waterIntake = result.waterLog.currentIntake; // Assuming API returns updated total
-                    render();
-                } else {
-                    alert(result.message || 'Failed to subtract water.');
-                }
-            } catch (error) {
-                console.error('Subtract water error:', error);
-                alert('An error occurred while subtracting water.');
-            }
+        addWater: () => {
+            state.waterIntake += 250;
+            render();
         },
-        updatePr: async (e) => {
+        subtractWater: () => {
+            state.waterIntake = Math.max(0, state.waterIntake - 250);
+            render();
+        },
+        updatePr: (e) => {
             e.preventDefault();
-            if (!state.user) return;
             const squat = document.getElementById('squat-pr').value;
             const bench = document.getElementById('bench-pr').value;
             const deadlift = document.getElementById('deadlift-pr').value;
 
-            try {
-                const updatedPrs = {
-                    squat: parseInt(squat) || 0,
-                    bench: parseInt(bench) || 0,
-                    deadlift: parseInt(deadlift) || 0,
-                };
-                // Assuming an API endpoint to update all PRs at once, or individual endpoints
-                // For simplicity, let's assume we send all of them.
-                const result = await api.put(`/api/profile`, { prs: updatedPrs }); // Assuming PRs are part of user profile update
-                if (result.user) {
-                    state.prs = result.user.prs; // Update local state with new PRs
-                    render();
-                    const prModal = bootstrap.Modal.getInstance(document.getElementById('prModal'));
-                    if (prModal) prModal.hide();
-                } else {
-                    alert(result.message || 'Failed to update PRs.');
-                }
-            } catch (error) {
-                console.error('Update PR error:', error);
-                alert('An error occurred while updating PRs.');
-            }
+            state.prs.squat = parseInt(squat) || 0;
+            state.prs.bench = parseInt(bench) || 0;
+            state.prs.deadlift = parseInt(deadlift) || 0;
+
+            render();
+            const prModal = bootstrap.Modal.getInstance(document.getElementById('prModal'));
+            if (prModal) prModal.hide();
         },
-        updateNutritionGoals: async (e) => {
+        updateNutritionGoals: (e) => {
             e.preventDefault();
-            if (!state.user) return;
             state.nutritionGoals.targetCalories = parseInt(document.getElementById('target-calories').value) || 0;
             state.nutritionGoals.targetProtein = parseInt(document.getElementById('target-protein').value) || 0;
             state.nutritionGoals.targetCarbs = parseInt(document.getElementById('target-carbs').value) || 0;
             state.nutritionGoals.targetFats = parseInt(document.getElementById('target-fats').value) || 0;
 
-            try {
-                const result = await api.put(`/api/profile`, { nutritionGoals: state.nutritionGoals }); // Assuming nutritionGoals are part of user profile update
-                if (result.user) {
-                    state.nutritionGoals = result.user.nutritionGoals; // Update local state
-                    const nutritionGoalModalEl = document.getElementById('nutritionGoalModal');
-                    const nutritionGoalModal = bootstrap.Modal.getInstance(nutritionGoalModalEl);
-                    nutritionGoalModalEl.addEventListener('hidden.bs.modal', function onModalHidden() {
-                        render();
-                    }, { once: true });
-                    if (nutritionGoalModal) {
-                        nutritionGoalModal.hide();
-                    } else {
-                        render();
-                    }
-                } else {
-                    alert(result.message || 'Failed to update nutrition goals.');
-                }
-            } catch (error) {
-                console.error('Update nutrition goals error:', error);
-                alert('An error occurred while updating nutrition goals.');
+            const nutritionGoalModalEl = document.getElementById('nutritionGoalModal');
+            const nutritionGoalModal = bootstrap.Modal.getInstance(nutritionGoalModalEl);
+
+            // Add a one-time listener to re-render once the modal is fully hidden
+            nutritionGoalModalEl.addEventListener('hidden.bs.modal', function onModalHidden() {
+                render();
+            }, { once: true }); // Use { once: true } to auto-remove the listener
+
+            if (nutritionGoalModal) {
+                nutritionGoalModal.hide();
+            } else {
+                // Fallback if modal instance isn't found
+                render();
             }
         },
-        addMeal: async (e) => {
+        addMeal: (e) => {
             e.preventDefault();
-            if (!state.user) return;
             const mealName = document.getElementById('meal-name').value;
             const calories = parseInt(document.getElementById('meal-calories').value) || 0;
             const protein = parseInt(document.getElementById('meal-protein').value) || 0;
@@ -1088,27 +906,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const fats = parseInt(document.getElementById('meal-fats').value) || 0;
 
             if (mealName && calories > 0) {
-                try {
-                    const result = await api.post('/api/meals', { name: mealName, calories, protein, carbs, fats });
-                    if (result.meal) {
-                        // Assuming API returns the full updated food log or just the added meal
-                        state.meals.push(result.meal);
-                        const addMealModalEl = document.getElementById('addMealModal');
-                        const addMealModal = bootstrap.Modal.getInstance(addMealModalEl);
-                        addMealModalEl.addEventListener('hidden.bs.modal', function onModalHidden() {
-                            render();
-                        }, { once: true });
-                        if (addMealModal) {
-                            addMealModal.hide();
-                        } else {
-                            render();
-                        }
-                    } else {
-                        alert(result.message || 'Failed to add meal.');
-                    }
-                } catch (error) {
-                    console.error('Add meal error:', error);
-                    alert('An error occurred while adding meal.');
+                state.meals.push({ name: mealName, calories, protein, carbs, fats });
+                
+                const addMealModalEl = document.getElementById('addMealModal');
+                const addMealModal = bootstrap.Modal.getInstance(addMealModalEl);
+
+                addMealModalEl.addEventListener('hidden.bs.modal', function onModalHidden() {
+                    render();
+                }, { once: true });
+
+                if (addMealModal) {
+                    addMealModal.hide();
+                } else {
+                    render();
                 }
             } else {
                 alert('Please enter at least a meal name and calories.');
@@ -1168,38 +978,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn("Set validation failed. Set was not added.");
             }
         },
-        saveWorkoutSession: async () => {
+        saveWorkoutSession: () => {
             console.log("saveWorkoutSession called");
-            if (!state.user) return;
             if (state.tempWorkoutSets.length > 0) {
-                try {
-                    // Assuming a planId is selected or defaults
-                    const planId = state.selectedPlan ? state.selectedPlan.id : 'default'; // Needs proper handling
-                    const result = await api.post('/api/workout-logs', { planId, exercises: state.tempWorkoutSets });
-                    if (result.log) {
-                        state.workoutLog = state.workoutLog.concat(result.log); // Assuming API returns the logged workout
-                        state.tempWorkoutSets = []; // Clear temporary sets
-                        
-                        const workoutLogModalEl = document.getElementById('workoutLogModal');
-                        const workoutLogModal = bootstrap.Modal.getInstance(workoutLogModalEl);
-                        
-                        workoutLogModalEl.addEventListener('hidden.bs.modal', function onModalHidden() {
-                            render();
-                            workoutLogModalEl.removeEventListener('hidden.bs.modal', onModalHidden);
-                        });
+                // Here, you would typically send the data to the backend
+                // For now, we just update the local state
+                state.workoutLog = state.workoutLog.concat(state.tempWorkoutSets);
+                state.tempWorkoutSets = []; // Clear temporary sets
+                
+                // Manually hide the modal and then re-render
+                const workoutLogModalEl = document.getElementById('workoutLogModal');
+                const workoutLogModal = bootstrap.Modal.getInstance(workoutLogModalEl);
+                
+                // Add a listener to re-render once the modal is fully hidden
+                workoutLogModalEl.addEventListener('hidden.bs.modal', function onModalHidden() {
+                    render();
+                    // Remove the event listener to avoid multiple renders in the future
+                    workoutLogModalEl.removeEventListener('hidden.bs.modal', onModalHidden);
+                });
 
-                        if (workoutLogModal) {
-                            workoutLogModal.hide();
-                        } else {
-                            render();
-                        }
-                    } else {
-                        alert(result.message || 'Failed to save workout session.');
-                    }
-                } catch (error) {
-                    console.error('Save workout session error:', error);
-                    alert('An error occurred while saving workout session.');
+                if (workoutLogModal) {
+                    workoutLogModal.hide();
+                } else {
+                    // Fallback if modal instance isn't found
+                    render();
                 }
+
             } else {
                 alert('No sets added to save!');
             }
@@ -1219,82 +1023,90 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    document.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent default submission for all forms
+    document.addEventListener('submit', (e) => {
+        // Prevent default submission for all forms initially, then handle specific forms
+        // This is done via addDashboardEventListeners for specific forms
         if (e.target.id === 'login-form') {
+            e.preventDefault();
+            console.log("Login form submitted.");
             const username = e.target.querySelector('#username').value;
             const password = e.target.querySelector('#password').value;
-            await actions.login(username, password);
-        } else if (e.target.id === 'register-form') {
-            const username = e.target.querySelector('#reg-username').value;
-            const password = e.target.querySelector('#reg-password').value;
-            const fullName = e.target.querySelector('#reg-fullName').value;
-            const age = e.target.querySelector('#reg-age').value;
-            const gender = e.target.querySelector('#reg-gender').value;
-            const height = e.target.querySelector('#reg-height').value;
-            const weight = e.target.querySelector('#reg-weight').value;
-            const goalType = e.target.querySelector('#reg-goalType').value;
-            const targetWeight = e.target.querySelector('#reg-targetWeight').value;
-            const activityLevel = e.target.querySelector('#reg-activityLevel').value;
-            await actions.register(username, password, fullName, age, gender, height, weight, goalType, targetWeight, activityLevel);
-        } else if (e.target.id === 'pr-form') {
-            await actions.updatePr(e);
-        } else if (e.target.id === 'nutrition-goal-form') {
-            await actions.updateNutritionGoals(e);
-        } else if (e.target.id === 'add-meal-form') {
-            await actions.addMeal(e);
+            actions.login(username, password);
         } else if (e.target.classList.contains('add-set-form')) {
-            actions.addTempSet(e); // This one doesn't need to be async if it just updates local state
+            // This event listener is now handled by the global click listener
+            // e.preventDefault() is called in addTempSet directly
+        } else if (e.target.id === 'pr-form') {
+            e.preventDefault(); // Prevent page reload for PR form
         }
     });
     
     // Global click listener for dynamically added buttons
-    document.addEventListener('click', async (e) => {
+    document.addEventListener('click', (e) => {
         if (e.target.classList.contains('add-set-btn')) {
-            actions.addTempSet(e); 
+            actions.addTempSet(e); // Let addTempSet handle preventDefault
         } else if (e.target.id === 'logout-btn') {
-            await actions.logout();
+            actions.logout();
         } else if (e.target.id === 'add-water-btn') {
-            await actions.addWater();
+            actions.addWater();
         } else if (e.target.id === 'subtract-water-btn') {
-            // Need to create an API endpoint for subtracting water
-            await actions.subtractWater();
-        } else if (e.target.dataset.view) {
-            handleViewChange(e);
+            actions.subtractWater();
         }
     });
 
-    const loadInitialData = async () => {
-        // Load data dictionaries and plans
-        const [workoutDict, foodDict, workoutPlans] = await Promise.all([
-            api.get('/api/data/workout-dictionary'),
-            api.get('/api/data/food-dictionary'),
-            api.get('/api/data/beginner-strength-plan') // This should probably be /api/workout-plans/all
-        ]);
-        state.workoutDictionary = workoutDict;
-        state.foodDictionary = foodDict;
-        state.workoutPlans = workoutPlans; // Assuming beginner-strength-plan is an array of plans or a single plan
+    const loadWorkoutDictionary = async () => {
+        try {
+            const res = await fetch('/api/data/workout-dictionary');
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            state.workoutDictionary = await res.json();
+            console.log("Workout dictionary loaded:", state.workoutDictionary);
+            // If the initial view is the dictionary, render again
+            if (state.currentView === 'workoutDictionary') {
+                render();
+            }
+        } catch (error) {
+            console.error("Could not load workout dictionary:", error);
+        }
     };
 
-    const init = async () => {
-        console.log("Initializing app...");
-        await loadInitialData();
-
-        // Check if user is already logged in
-        const loggedInUser = await api.get('/api/user/me'); // Assuming an endpoint to get logged in user
-        if (loggedInUser && loggedInUser.user) {
-            state.user = loggedInUser.user;
-            state.currentView = 'dashboard';
-            // Fetch user-specific data like PRs, water intake, meals, workout logs
-            // For now, these are dummy values until API is fully implemented
-            state.prs = loggedInUser.user.prs || { squat: 0, bench: 0, deadlift: 0 };
-            state.waterIntake = loggedInUser.user.waterIntake || 0;
-            state.meals = loggedInUser.user.meals || [];
-            state.workoutLog = loggedInUser.user.workoutLog || [];
-            state.nutritionGoals = loggedInUser.user.nutritionGoals || state.nutritionGoals; // Use existing if not in user
-        } else {
-            state.currentView = 'login';
+    const loadFoodDictionary = async () => {
+        try {
+            const res = await fetch('/api/data/food-dictionary');
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            state.foodDictionary = await res.json();
+            console.log("Food dictionary loaded:", state.foodDictionary);
+            // If the initial view is the food program, render again
+            if (state.currentView === 'foodProgram') {
+                render();
+            }
+        } catch (error) {
+            console.error("Could not load food dictionary:", error);
         }
+    };
+
+    const loadWorkoutPlans = async () => {
+        try {
+            const res = await fetch('/api/data/beginner-strength-plan');
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            // Since we're loading one plan, we wrap it in an array for consistency
+            const plan = await res.json();
+            state.workoutPlans = [plan]; 
+            console.log("Workout plans loaded:", state.workoutPlans);
+        } catch (error) {
+            console.error("Could not load workout plans:", error);
+        }
+    };
+
+    const init = () => {
+        console.log("Initializing...");
+        loadWorkoutDictionary();
+        loadFoodDictionary();
+        loadWorkoutPlans();
         render();
     };
 

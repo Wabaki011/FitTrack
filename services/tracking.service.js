@@ -48,21 +48,6 @@ const getWaterLogForDate = async (userId, date) => {
         .find(log => log.date === date);
 };
 
-const subtractWaterIntake = async (userId, amount) => {
-    const date = new Date().toISOString().split('T')[0];
-    let waterLog = (await dataService.findByProperty('water-logs', 'userId', userId))
-        .find(log => log.date === date);
-
-    if (waterLog) {
-        waterLog.amount = Math.max(0, waterLog.amount - amount);
-        return dataService.update('water-logs', waterLog.id, waterLog);
-    } else {
-        // If no log exists, we can't subtract, so create a new one with 0 or return null
-        const newLog = new WaterLog(uuidv4(), userId, date, 0); // Or handle as an error if subtraction requires existing log
-        return dataService.create('water-logs', newLog);
-    }
-};
-
 // --- PR Tracking ---
 
 const addPR = async (userId, exercise, value) => {
@@ -79,7 +64,6 @@ module.exports = {
     addMeal,
     getFoodLogForDate,
     addWaterIntake,
-    subtractWaterIntake,
     getWaterLogForDate,
     addPR,
     getPRsForUser,
