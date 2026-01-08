@@ -49,9 +49,6 @@ router.post('/login', async (req, res, next) => {
         const user = await authService.login(username, password);
         res.json({ message: 'Login successful!', user });
     } catch (error) {
-        if (error.message === 'Invalid username or password.') {
-            error.statusCode = 401; // Unauthorized
-        }
         next(error);
     }
 });

@@ -981,13 +981,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     ]);
                     render();
                 } else {
-                    // This block might not be reached if api.post throws on !response.ok
-                    // But good to have as a fallback if API returns { message: '...' } with 200 OK
                     alert(result.message || 'Login failed.');
                 }
             } catch (error) {
                 console.error('Login error:', error);
-                alert(`Login failed: ${error.message}`);
+                alert('An error occurred during login.');
             }
         },
         register: async (username, password, fullName, age, gender, height, weight, goalType, targetWeight, activityLevel) => {
