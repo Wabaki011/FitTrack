@@ -833,21 +833,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     viewContent = templates.dashboard(templateData);
             }
             app.innerHTML = templates.layout(viewContent, state.user);
-            attachEventListeners(); // Add event listeners after rendering dashboard
+            addDashboardEventListeners(); // Add event listeners after rendering dashboard
         } else {
-            switch (state.currentView) {
-                case 'register':
-                    app.innerHTML = templates.registerPage();
-                    break;
-                case 'login':
-                default:
-                    app.innerHTML = templates.loginPage();
-            }
-            attachEventListeners(); // Also attach for login/register pages
+            app.innerHTML = templates.loginPage();
         }
     };
 
-    const attachEventListeners = () => {
+    const addDashboardEventListeners = () => {
         // Handle navigation clicks
         document.querySelectorAll('a[data-view]').forEach(link => {
             link.removeEventListener('click', handleViewChange); // Prevent multiple listeners
@@ -911,13 +903,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Workout Plan buttons
         const viewPlanButtons = document.querySelectorAll('[data-plan-id]');
         viewPlanButtons.forEach(button => {
-            button.removeEventListener('click', (e) => actions.viewPlan(e.target.dataset.planId)); // Prevent duplicates
             button.addEventListener('click', (e) => actions.viewPlan(e.target.dataset.planId));
         });
 
         const backToPlansBtn = document.getElementById('back-to-plans-btn');
         if (backToPlansBtn) {
-            backToPlansBtn.removeEventListener('click', actions.backToPlans); // Prevent duplicates
             backToPlansBtn.addEventListener('click', actions.backToPlans);
         }
 
@@ -925,24 +915,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Debugging logs for modal display
         const prModalElement = document.getElementById('prModal');
         if (prModalElement) {
-            prModalElement.removeEventListener('show.bs.modal', () => console.log('PR Modal is about to be shown.'));
             prModalElement.addEventListener('show.bs.modal', () => console.log('PR Modal is about to be shown.'));
-            prModalElement.removeEventListener('shown.bs.modal', () => console.log('PR Modal is shown.'));
             prModalElement.addEventListener('shown.bs.modal', () => console.log('PR Modal is shown.'));
-            prModalElement.removeEventListener('hide.bs.modal', () => console.log('PR Modal is about to be hidden.'));
             prModalElement.addEventListener('hide.bs.modal', () => console.log('PR Modal is about to be hidden.'));
-            prModalElement.removeEventListener('hidden.bs.modal', () => console.log('PR Modal is hidden.'));
             prModalElement.addEventListener('hidden.bs.modal', () => console.log('PR Modal is hidden.'));
         }
         const workoutLogModalElementDebug = document.getElementById('workoutLogModal');
         if (workoutLogModalElementDebug) {
-            workoutLogModalElementDebug.removeEventListener('show.bs.modal', () => console.log('Workout Log Modal is about to be shown.'));
             workoutLogModalElementDebug.addEventListener('show.bs.modal', () => console.log('Workout Log Modal is about to be shown.'));
-            workoutLogModalElementDebug.removeEventListener('shown.bs.modal', () => console.log('Workout Log Modal is shown.'));
             workoutLogModalElementDebug.addEventListener('shown.bs.modal', () => console.log('Workout Log Modal is shown.'));
-            workoutLogModalElementDebug.removeEventListener('hide.bs.modal', () => console.log('Workout Log Modal is about to be hidden.'));
             workoutLogModalElementDebug.addEventListener('hide.bs.modal', () => console.log('Workout Log Modal is about to be hidden.'));
-            workoutLogModalElementDebug.removeEventListener('hidden.bs.modal', () => console.log('Workout Log Modal is hidden.'));
             workoutLogModalElementDebug.addEventListener('hidden.bs.modal', () => console.log('Workout Log Modal is hidden.'));
         }
     };
