@@ -14,6 +14,7 @@ const workoutPlanService = require('../services/workout-plan.service');
 const requireAuth = async (req, res, next) => {
     const user = await authService.getLoggedInUser();
     if (!user) {
+        req.user = null; // Explicitly set to null if not authenticated
         return res.status(401).json({ message: 'Unauthorized. Please log in.' });
     }
     req.user = user;
@@ -36,6 +37,8 @@ router.post('/register', async (req, res, next) => {
     } catch (error) {
         if (error.message === 'User already exists.') {
             error.statusCode = 409; // Conflict
+        } else if (error.message === 'Invalid username or password.') { // Added for login issues
+            error.statusCode = 401;
         } else if (error.message === 'Missing required registration fields.') {
             error.statusCode = 400; // Bad Request
         }
@@ -56,9 +59,9 @@ router.post('/login', async (req, res, next) => {
     }
 });
 
-router.post('/logout', (req, res, next) => {
+router.post('/logout', async (req, res, next) => { // Made async for consistency
     try {
-        authService.logout();
+        await authService.logout();
         res.json({ message: 'Logout successful!' });
     } catch (error) {
         next(error);
@@ -66,10 +69,21 @@ router.post('/logout', (req, res, next) => {
 });
 
 // --- User & Dashboard Routes ---
-router.get('/user/me', requireAuth, (req, res) => {
-    res.json({ user: req.user });
+router.get('/user/me', async (req, res, next) => { // Removed requireAuth here, handle logic internally
+    try {
+        const user = await authService.getLoggedInUser();
+        if (user) {
+            res.json({ user: user });
+        } else {
+            // Explicitly return null user if not logged in, but with 200 OK for frontend not to throw error
+            res.json({ user: null });
+        }
+    } catch (error) {
+        next(error);
+    }
 });
 
+// All other routes that require authentication should use requireAuth middleware
 router.get('/dashboard', requireAuth, async (req, res, next) => {
     try {
         const today = new Date().toISOString().split('T')[0];
