@@ -1,5 +1,5 @@
 // auth/auth.service.js
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 const dataService = require('../services/data.service');
 const User = require('../models/user.model');
