@@ -1310,9 +1310,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const init = async () => {
         console.log("Initializing app...");
-        await loadInitialData();
+        state.currentView = 'login'; // Always start at login view
+        render(); // Render login page immediately
 
-        // Check if user is already logged in
+        // Now, in the background, check for a logged-in user and load common data
+        await loadInitialData(); // Load data needed for both logged in/out states
+
         try {
             const loggedInUser = await api.get('/api/user/me');
             if (loggedInUser && loggedInUser.user) {
@@ -1325,14 +1328,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 state.meals = loggedInUser.user.meals || [];
                 state.workoutLog = loggedInUser.user.workoutLog || [];
                 state.nutritionGoals = loggedInUser.user.nutritionGoals || state.nutritionGoals; // Use existing if not in user
-            } else {
-                state.currentView = 'login';
             }
+            // If not logged in, state.currentView remains 'login', which is already rendered.
         } catch (error) {
             console.warn('No user logged in or error fetching user session:', error.message);
-            state.currentView = 'login'; // Ensure we go to login if session check fails
+            // state.currentView already 'login', no change needed
         }
-        render();
+        render(); // Re-render to show dashboard if logged in, or re-confirm login view
     };
 
     init();
