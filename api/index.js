@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require("path");
+const routes = require("./routes");
 
 const app = express();
 
@@ -11,5 +11,7 @@ app.get("/", (req, res) => {
     message: "FitTrack API is live 🚀"
   });
 });
+
+app.use("/api", routes);
 
 module.exports = app;

@@ -2,27 +2,43 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const dataFolderPath = path.join(__dirname, '..', 'data');
+// Path for initial data
+const initialDataPath = path.join(__dirname, '..', 'public', 'data');
+// Path for mutable data (Vercel uses /tmp, otherwise use initial data path)
+const mutableDataPath = process.env.VERCEL ? '/tmp' : initialDataPath;
 
-const getFilePath = (fileName) => path.join(dataFolderPath, `${fileName}.json`);
+const getInitialFilePath = (fileName) => path.join(initialDataPath, `${fileName}.json`);
+const getMutableFilePath = (fileName) => path.join(mutableDataPath, `${fileName}.json`);
 
 const readFile = async (fileName) => {
+    const mutableFilePath = getMutableFilePath(fileName);
     try {
-        const filePath = getFilePath(fileName);
-        const data = await fs.readFile(filePath, 'utf-8');
+        // Try reading from the mutable path first
+        const data = await fs.readFile(mutableFilePath, 'utf-8');
         return data ? JSON.parse(data) : [];
     } catch (error) {
         if (error.code === 'ENOENT') {
-            // File doesn't exist, return empty array
-            await writeFile(fileName, []);
-            return [];
+            // If it doesn't exist in mutable storage, copy from initial data
+            try {
+                const initialFilePath = getInitialFilePath(fileName);
+                const initialData = await fs.readFile(initialFilePath, 'utf-8');
+                await fs.writeFile(mutableFilePath, initialData, 'utf-8');
+                return initialData ? JSON.parse(initialData) : [];
+            } catch (copyError) {
+                 if (copyError.code === 'ENOENT') {
+                    // If the initial file also doesn't exist, create an empty file
+                    await writeFile(fileName, []);
+                    return [];
+                 }
+                 throw copyError;
+            }
         }
         throw error;
     }
 };
 
 const writeFile = async (fileName, data) => {
-    const filePath = getFilePath(fileName);
+    const filePath = getMutableFilePath(fileName);
     await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
 };
 

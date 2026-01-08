@@ -8,7 +8,9 @@ const path = require('path');
 
 const config = require('../config/config');
 const saltRounds = config.auth.saltRounds;
-const sessionFilePath = path.join(__dirname, '..', 'data', 'session.json');
+const sessionFilePath = process.env.VERCEL
+  ? path.join('/tmp', 'session.json')
+  : path.join(__dirname, '..', 'public', 'data', 'session.json');
 
 const register = async (username, password, profile, goals, workoutPlanId = null) => {
     const users = await dataService.find('users');
@@ -56,6 +58,10 @@ const getLoggedInUser = async () => {
         }
         return null;
     } catch (error) {
+        if (error.code === 'ENOENT') {
+            return null; // If session file doesn't exist, no one is logged in.
+        }
+        console.error('Error reading session file:', error);
         return null;
     }
 };
