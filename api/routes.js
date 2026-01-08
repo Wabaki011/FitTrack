@@ -24,21 +24,9 @@ const requireAuth = async (req, res, next) => {
 router.post('/register', async (req, res, next) => {
     try {
         const { username, password, profile, goals } = req.body;
-        // Basic validation - more comprehensive validation should be in authService or a separate middleware
-        if (!username || !password || !profile || !goals) {
-            const error = new Error('Missing required registration fields.');
-            error.statusCode = 400;
-            return next(error);
-        }
-
-        const newUser = await authService.register(username, password, profile, goals, null);
+        const newUser = await authService.register(username, password, profile, goals, null); // Pass null for workoutPlanId initially
         res.status(201).json({ message: 'User registered successfully!', user: newUser });
     } catch (error) {
-        if (error.message === 'User already exists.') {
-            error.statusCode = 409; // Conflict
-        } else if (error.message === 'Missing required registration fields.') {
-            error.statusCode = 400; // Bad Request
-        }
         next(error);
     }
 });
