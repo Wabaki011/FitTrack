@@ -19,9 +19,8 @@ const register = async (username, password, profile, goals, workoutPlanId = null
         throw new Error('User already exists.');
     }
 
-    // SECURITY WARNING: Storing passwords in plaintext. This is for demonstration ONLY.
-    // In production, ALWAYS hash passwords (e.g., const hashedPassword = await bcrypt.hash(password, saltRounds);)
-    const newUser = new User(uuidv4(), username, password, profile, goals, workoutPlanId);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const newUser = new User(uuidv4(), username, hashedPassword, profile, goals, workoutPlanId);
     
     return dataService.create('users', newUser);
 };
@@ -34,9 +33,17 @@ const login = async (username, password) => {
         throw new Error('Invalid username or password.');
     }
 
-    // SECURITY WARNING: Comparing passwords in plaintext. This is for demonstration ONLY.
-    // In production, ALWAYS compare hashed passwords (e.g., const isMatch = await bcrypt.compare(password, user.password);)
-    const isMatch = (password === user.password);
+    let isMatch = false;
+    // Attempt bcrypt comparison first
+    try {
+        isMatch = await bcrypt.compare(password, user.password);
+    } catch (e) {
+        // If bcrypt comparison fails (e.g., password not hashed), fall back to direct comparison
+        // WARNING: This is a security vulnerability and should be removed in production.
+        // All passwords should be hashed. This is for unblocking development only.
+        isMatch = (password === user.password);
+        console.warn('Fallback to plaintext password comparison for user:', username);
+    }
 
     if (!isMatch) {
         throw new Error('Invalid username or password.');
