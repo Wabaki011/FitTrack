@@ -195,5 +195,33 @@ router.get('/workout-plans/all', async (req, res, next) => {
     }
 });
 
+// --- Data Routes ---
+router.get('/data/workout-dictionary', async (req, res, next) => {
+    try {
+        const data = await dataService.find('workout-dictionary');
+        res.json(data);
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.get('/data/food-dictionary', async (req, res, next) => {
+    try {
+        const data = await dataService.find('food-dictionary');
+        res.json(data);
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.get('/data/beginner-strength-plan', async (req, res, next) => {
+    try {
+        const data = await dataService.find('beginner-strength-plan');
+        res.json(data);
+    } catch (error) {
+        next(error);
+    }
+});
+
 
 module.exports = router;

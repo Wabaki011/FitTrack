@@ -1055,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadWorkoutDictionary = async () => {
         try {
-            const res = await fetch('data/workout-dictionary.json');
+            const res = await fetch('/api/data/workout-dictionary');
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
@@ -1072,7 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadFoodDictionary = async () => {
         try {
-            const res = await fetch('data/food-dictionary.json');
+            const res = await fetch('/api/data/food-dictionary');
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
@@ -1089,7 +1089,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadWorkoutPlans = async () => {
         try {
-            const res = await fetch('data/beginner-strength-plan.json');
+            const res = await fetch('/api/data/beginner-strength-plan');
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
